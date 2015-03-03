@@ -1,14 +1,15 @@
+<h1>{{ listTitle.toUpperCase() }}</h1>
 <div class="form">
-  <input type="text" id="todoItem" class="inputs" placeholder="Add an Item">
-  <button type="button" class="inputButton"> + </button>
+  <input type="text" id="todoItem" class="inputs col-md-9" ng-model="item" placeholder="Add an Item">
+  <button type="button" class="inputButton btn btn-primary" ng-click="createItem()"> + </button>
 </div>
 
 <br><br>
 
 <ul class="lists">
-  <li>
-   <span class="item"></span>
-   <button type="button">x</button>
+  <li ng-repeat="item in lists[listTitle]">
+  <span class="item"> {{ item }}  </span>
+   <button type="button" ng-click="deleteItem(item)">x</button>
   </li>
 </ul>
 

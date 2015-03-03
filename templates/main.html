@@ -1,14 +1,14 @@
 <div class="form">
-  <input type="text" id="todoTitle" class="inputs" placeholder="Todo list Title">
-  <button type="button" class="inputButton"> + </button>
+  <input type="text" id="todoTitle" class="inputs" ng-model="viewTitle" placeholder="Todo list Title">
+  <button type="button" class="inputButton" ng-click="createList()"> + </button>
 </div>
 
 <br><br>
 
 <ul class="lists">
-  <li>
-   <span class="item clickable"></span>
-   <button type="button" id="deleteList">X</button>
+  <li ng-repeat="(key, value) in lists">
+  <span class="item clickable" ng-click="gotoList(key)"> {{ key }} ({{ value.length }})</span>
+   <button type="button" id="deleteList" ng-click="deleteList(key)">X</button>
   </li>
 </ul>
 
